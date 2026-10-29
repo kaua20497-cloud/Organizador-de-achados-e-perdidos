@@ -1,7 +1,7 @@
 # Achados e perdidos
 
 ## Objetivos
-
+crie um sistema que organize o achados e perdidos de forma eficiente; faça dois possíveis logins: 1. funcionário: pode acessar e editar informações no achados e perdidos. 2. perdedor: qualquer pessoa pode entrar em contato com os funcionários do do setor através do próprio sistema 
 
 ### Stack Tecnlógico
 - Backend: PHP estruturado com sessões nativas
