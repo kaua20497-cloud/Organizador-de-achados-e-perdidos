@@ -1,7 +1,7 @@
 # Achados e perdidos
 
 ## Objetivos
-crie um sistema que organize o achados e perdidos de forma eficiente; faça dois possíveis logins: 1. funcionário: pode acessar e editar informações no achados e perdidos. 2. perdedor: qualquer pessoa pode entrar em contato com os funcionários do do setor através do próprio sistema 
+Crie um sistema que organize o achados e perdidos de forma eficiente; faça dois possíveis logins: 1. funcionário: pode acessar e editar informações no achados e perdidos. 2. perdedor: qualquer pessoa pode entrar em contato com os funcionários do do setor através do próprio sistema.
 
 ### Stack Tecnlógico
 - Backend: PHP estruturado com sessões nativas
@@ -9,6 +9,8 @@ crie um sistema que organize o achados e perdidos de forma eficiente; faça dois
 - Frontend: HTML5, PHP, CSS, Tailwind CSS
 
 #### Regras de negócio (CORE)
+Funcionários terão um único login de acesso para que possam acessar e editar informações enquanto pessoas que estão procurando algo nao precisam de login.
+
 Tratar senhas de usuários com hash bcript
 O sistema deve ter uma página de históricos e manter sempre os logs de qualquer alteração feita por 
 qualquer usuário, para auditorias futuras.
