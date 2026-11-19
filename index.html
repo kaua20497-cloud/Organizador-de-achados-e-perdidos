@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Achados & Perdidos — Universidade</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <div class="logo">ACHADOS <span>&</span> PERDIDOS</div>
+  <div class="search">
+    <input id="search" placeholder="Pesquisar objeto, código, marca, localização..." autocomplete="off">
+    <div id="results" class="results"></div>
+  </div>
+</header>
+
+<main>
+  <div class="top">
+    <div><h1>Controle de Achados e Perdidos</h1><p>Catálogo interno e localização dos objetos.</p></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button onclick="exportData()">⇩ Exportar dados</button><button class="primary" onclick="openModal()">＋ Cadastrar objeto</button></div>
+  </div>
+
+  <section class="stats">
+    <div class="stat"><small>Total cadastrados</small><strong id="total">0</strong></div>
+    <div class="stat"><small>Disponíveis</small><strong id="availableCount">0</strong></div>
+    <div class="stat"><small>Em devolução</small><strong id="returningCount">0</strong></div>
+    <div class="stat"><small>Devolvidos</small><strong id="returnedCount">0</strong></div>
+  </section>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Mapa da sala</h2>
+      <p style="font-size:12px;color:var(--muted);margin-top:-8px">Clique em uma prateleira para filtrar os objetos armazenados nela.</p>
+      <div class="armarios" id="armarios"></div>
+    </section>
+
+    <section class="card">
+      <h2 id="listTitle">Objetos cadastrados</h2>
+      <div class="list" id="itemList"></div>
+    </section>
+  </div>
+</main>
+
+<div class="modal" id="modal">
+ <div class="modalbox">
+  <div class="modalhead"><h2 id="modalTitle">Cadastrar objeto</h2><button class="close" onclick="closeModal()">✕</button></div>
+  <form id="form">
+   <div class="form">
+    <div class="field"><label>Nome do objeto *</label><input name="name" required placeholder="Ex.: iPhone 13"></div>
+    <div class="field"><label>Categoria *</label><select name="category" required><option value="">Selecione</option><option>Celular</option><option>Documento</option><option>Chaves</option><option>Mochila</option><option>Carteira</option><option>Roupa</option><option>Eletrônico</option><option>Acessório</option><option>Material escolar</option><option>Outro</option></select></div>
+    <div class="field"><label>Marca</label><input name="brand" placeholder="Ex.: Apple"></div>
+    <div class="field"><label>Cor</label><input name="color" placeholder="Ex.: Preto"></div>
+    <div class="field full"><label>Descrição / características</label><textarea name="description" placeholder="Detalhes que ajudam a identificar o objeto..."></textarea></div>
+    <div class="field"><label>Armário *</label><select name="cabinet" required><option value="">Selecione</option><option value="1">Armário 1</option><option value="2">Armário 2</option><option value="3">Armário 3</option><option value="4">Armário 4</option><option value="5">Armário 5</option></select></div>
+    <div class="field"><label>Prateleira / andar *</label><select name="shelf" required><option value="">Selecione</option><option value="1">Prateleira 1</option><option value="2">Prateleira 2</option><option value="3">Prateleira 3</option><option value="4">Prateleira 4</option><option value="5">Prateleira 5</option><option value="6">Prateleira 6</option><option value="7">Prateleira 7</option></select></div>
+    <div class="field"><label>Data encontrado *</label><input name="date" type="date" required></div>
+    <div class="field"><label>Status *</label><select name="status"><option value="available">Disponível</option><option value="returning">Em processo de devolução</option><option value="returned">Devolvido</option><option value="discarded">Descartado/encaminhado</option></select></div>
+    <div class="field full"><label>Foto</label><input id="photo" name="photo" type="file" accept="image/*"><img id="preview" class="photo-preview"></div>
+    <div class="field full"><label>Observações</label><textarea name="notes" placeholder="Informações adicionais..."></textarea></div>
+   </div>
+   <div class="actions"><button type="button" onclick="closeModal()">Cancelar</button><button id="deleteBtn" type="button" onclick="deleteEditing()" style="display:none;background:#fde8e8;color:#b83232">Excluir</button><button class="primary" type="submit" id="saveBtn">Salvar objeto</button></div>
+  </form>
+ </div>
+</div>
+<div id="toast" class="toast"></div>
+
+<script src="js/script.js" defer></script>
+</body>
+</html>
